@@ -1,16 +1,42 @@
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-    version="2.4">
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.4">
+	<servlet>
+		<servlet-name>Ch3 Beer</servlet-name>
+		<servlet-class>com.example.web.BeerSelect</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Ch3 Beer</servlet-name>
+		<url-pattern>/SelectBeer.do</url-pattern>
+	</servlet-mapping>
 
-    <servlet>
-        <servlet-name>Ch3 Beer</servlet-name>
-        <servlet-class>com.example.web.BeerSelect</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Ch3 Beer</servlet-name>
-        <url-pattern>/SelectBeer.do</url-pattern>
-    </servlet-mapping>
-
-</web-app>     
+	<servlet>
+		<servlet-name>Send PDF</servlet-name>
+		<servlet-class>com.example.web.SendPDF</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Send PDF</servlet-name>
+		<url-pattern>/GetPDF</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Tests</servlet-name>
+		<servlet-class>com.example.web.Test</servlet-class>
+		<init-param>
+			<param-name>email</param-name>
+			<param-value>bowen1923@gmai.com</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tests</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	<listener>
+		<listener-class>com.example.web.MyServletContextListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>breed</param-name>
+		<param-value>Haskey</param-value>
+	</context-param>
+</web-app>
